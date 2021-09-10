@@ -1,6 +1,5 @@
 package com.darken.ddddemo.infrastructure.db.mapper;
 
-import com.darken.ddddemo.infrastructure.db.dataObject.AccountName;
 import com.darken.ddddemo.infrastructure.db.dataObject.UserDo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -14,8 +13,8 @@ import org.apache.ibatis.annotations.Param;
 public interface UserMapper {
     /**
      * 依据用户名查询用户数据
-     * @param accountName   用户名
+     * @param userName   用户名
      * @return  用户数据对象
      */
-    UserDo byAccountName(@Param(value = "accountName") AccountName accountName);
+    UserDo byUserName(@Param(value = "userName") String userName);
 }

@@ -49,4 +49,9 @@ public class UserDo {
      * 邮箱
      */
     private String email;
+
+    /**
+     * 邮政编码
+     */
+    private String locationCode;
 }

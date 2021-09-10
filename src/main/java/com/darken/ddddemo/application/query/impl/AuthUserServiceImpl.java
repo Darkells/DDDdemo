@@ -25,7 +25,7 @@ public class AuthUserServiceImpl implements AuthUserService {
     @Override
     public AccountLoginDto loginByAccount(AccountLoginVo accountLoginVo) {
         AccountLoginDo accountLoginDo = AccountLoginAdapter.accountLoginVoToDo(accountLoginVo);
-        UserDo userDo = userMapper.byAccountName(accountLoginDo.getAccountName());
+        UserDo userDo = userMapper.byUserName("");
         if (null == userDo){
             throw new RuntimeException("用户不存在");
         }

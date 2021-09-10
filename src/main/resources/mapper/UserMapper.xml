@@ -5,12 +5,12 @@
 <mapper
 	namespace="com.darken.ddddemo.infrastructure.db.mapper.UserMapper">
 
-	<select id="byAccountName" resultType="com.darken.ddddemo.infrastructure.db.dataObject.UserDo">
+	<select id="byUserName" resultType="com.darken.ddddemo.infrastructure.db.dataObject.UserDo">
 		SELECT * FROM
-		ddd.user
+		ddd_user
 		WHERE TRUE
 		<if test="accountName != null and accountName != ''">
-			account_name = #{accountName}
+			account_name = #{userName}
 		</if>
 	</select>
 </mapper>
