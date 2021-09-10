@@ -6,9 +6,10 @@ import com.darken.ddddemo.application.dto.AccountLoginDto;
 import com.darken.ddddemo.application.service.query.AuthUserService;
 import com.darken.ddddemo.application.vo.AccountLoginVo;
 import com.darken.ddddemo.domain.DO.AccountLoginDo;
-import com.darken.ddddemo.domain.anticorruption.UserRepository;
+import com.darken.ddddemo.domain.anticorruption.UserAntiCorruption;
 import com.darken.ddddemo.domain.specification.AccountLoginSpecification;
 import com.darken.ddddemo.infrastructure.repository.po.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -21,14 +22,14 @@ import java.util.List;
 @Service
 public class AuthUserServiceImpl implements AuthUserService {
 
-    @Resource
-    private UserRepository userRepository;
+    @Autowired
+    private UserAntiCorruption userAntiCorruption;
 
     @Override
     public AccountLoginDto loginByAccount(AccountLoginVo accountLoginVo) {
         AccountLoginDo accountLoginDo = AccountLoginAdapter.accountLoginVoToDo(accountLoginVo);
         //todo 不对劲  直接查询获取得到po没有转DO
-        List<User> userList = userRepository.find(accountLoginDo.getAccountName());
+        List<User> userList = userAntiCorruption.find(accountLoginDo.getAccountName());
         if (CollectionUtil.isEmpty(userList)){
             throw new RuntimeException("用户或密码不正确");
         }

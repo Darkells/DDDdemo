@@ -1,7 +1,7 @@
 package com.darken.ddddemo.infrastructure.repository.mapper;
 
 import com.darken.ddddemo.domain.DO.AccountName;
-import com.darken.ddddemo.domain.anticorruption.UserRepository;
+import com.darken.ddddemo.domain.anticorruption.UserAntiCorruption;
 import com.darken.ddddemo.infrastructure.repository.po.User;
 import org.springframework.stereotype.Component;
 
@@ -13,7 +13,7 @@ import java.util.List;
  * @author 86134
  */
 @Component
-public class UserMapper implements UserRepository {
+public class UserMapper implements UserAntiCorruption {
     @Override
     public List<User> find(AccountName accountName) {
         List<User> userList = new ArrayList<>();
