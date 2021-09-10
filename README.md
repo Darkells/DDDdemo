@@ -28,6 +28,6 @@ DDD demo
      ├─cache             缓存
      ├─repository        仓储
      │   ├─adapter       适配器 PO和DO转换
-     │   ├─entry         实体
+     │   ├─po            实体
      │   └─mapper        数据库查询
      └─util              工具包
