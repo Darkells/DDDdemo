@@ -1,6 +1,5 @@
 package com.darken.ddddemo.infrastructure.repository.po;
 
-import lombok.Builder;
 import lombok.Data;
 
 /**
