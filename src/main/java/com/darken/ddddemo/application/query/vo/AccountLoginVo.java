@@ -1,4 +1,4 @@
-package com.darken.ddddemo.application.vo;
+package com.darken.ddddemo.application.query.vo;
 
 
 import io.swagger.annotations.ApiModelProperty;

@@ -1,6 +1,7 @@
-package com.darken.ddddemo.application.dto;
+package com.darken.ddddemo.application.query.dto;
 
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 
 import java.io.Serializable;
 
@@ -8,6 +9,7 @@ import java.io.Serializable;
  * 用户登陆返回
  * @author 86134
  */
+@Data
 public class AccountLoginDto implements Serializable {
 
     public AccountLoginDto(String message, boolean success) {
@@ -21,11 +23,4 @@ public class AccountLoginDto implements Serializable {
     @ApiModelProperty(value = "是否成功")
     private boolean success;
 
-    public String getMessage() {
-        return message;
-    }
-
-    public boolean isSuccess() {
-        return success;
-    }
 }

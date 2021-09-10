@@ -1,4 +1,4 @@
-package com.darken.ddddemo.domain.DO;
+package com.darken.ddddemo.infrastructure.db.dataObject;
 
 
 import cn.hutool.core.util.StrUtil;

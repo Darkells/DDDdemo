@@ -1,12 +1,15 @@
-package com.darken.ddddemo.infrastructure.repository.po;
+package com.darken.ddddemo.infrastructure.db.dataObject;
 
 import lombok.Data;
 
 /**
- * @author 86134
+ * @author: Darken
+ * @Date: 2021-09-10 19:04
  */
+
 @Data
-public class User {
+public class UserDo {
+
     /**
      * 用户名
      */

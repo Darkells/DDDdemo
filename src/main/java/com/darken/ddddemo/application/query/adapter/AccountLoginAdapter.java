@@ -1,9 +1,9 @@
-package com.darken.ddddemo.application.adapter;
+package com.darken.ddddemo.application.query.adapter;
 
-import com.darken.ddddemo.application.vo.AccountLoginVo;
-import com.darken.ddddemo.domain.DO.AccountLoginDo;
-import com.darken.ddddemo.domain.DO.AccountName;
-import com.darken.ddddemo.domain.DO.AccountPassword;
+import com.darken.ddddemo.application.query.vo.AccountLoginVo;
+import com.darken.ddddemo.infrastructure.db.dataObject.AccountLoginDo;
+import com.darken.ddddemo.infrastructure.db.dataObject.AccountName;
+import com.darken.ddddemo.infrastructure.db.dataObject.AccountPassword;
 
 /**
  * @author 86134
