@@ -4,7 +4,7 @@ import com.darken.ddddemo.application.query.AuthUserService;
 import com.darken.ddddemo.application.query.adapter.AccountLoginAdapter;
 import com.darken.ddddemo.application.query.dto.AccountLoginDto;
 import com.darken.ddddemo.application.query.vo.AccountLoginVo;
-import com.darken.ddddemo.infrastructure.db.dataObject.AccountLoginDo;
+import com.darken.ddddemo.domain.valueObject.AccountLogin;
 import com.darken.ddddemo.infrastructure.db.dataObject.UserDo;
 import com.darken.ddddemo.domain.specification.AccountLoginSpecification;
 import com.darken.ddddemo.infrastructure.db.mapper.UserMapper;
@@ -24,14 +24,20 @@ public class AuthUserServiceImpl implements AuthUserService {
 
     @Override
     public AccountLoginDto loginByAccount(AccountLoginVo accountLoginVo) {
-        AccountLoginDo accountLoginDo = AccountLoginAdapter.accountLoginVoToDo(accountLoginVo);
-        UserDo userDo = userMapper.byUserName("");
+        //值校验
+        AccountLogin accountLoginDp = AccountLoginAdapter.accountLoginVoToDp(accountLoginVo);
+
+        //查询
+        UserDo userDo = userMapper.byUserName(accountLoginDp.getAccountName().getName());
         if (null == userDo){
             throw new RuntimeException("用户不存在");
         }
+
+        //规则校验(密码校验)
         AccountLoginSpecification specification = new AccountLoginSpecification(userDo.getPassword());
-        specification.isSatisfiedBy(accountLoginDo);
-        //这里我觉得是返回userDto或者UserVo
+        specification.isSatisfiedBy(accountLoginDp);
+
+        //返回userDto
         return new AccountLoginDto("登陆成功",true);
     }
 }

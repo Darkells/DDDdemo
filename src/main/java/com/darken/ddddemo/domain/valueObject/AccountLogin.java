@@ -1,4 +1,4 @@
-package com.darken.ddddemo.infrastructure.db.dataObject;
+package com.darken.ddddemo.domain.valueObject;
 
 import lombok.Data;
 
@@ -7,13 +7,13 @@ import lombok.Data;
  * @author 86134
  */
 @Data
-public class AccountLoginDo {
+public class AccountLogin {
 
     private AccountName accountName;
 
     private AccountPassword password;
 
-    public AccountLoginDo(final AccountName accountName,final AccountPassword password){
+    public AccountLogin(final AccountName accountName, final AccountPassword password){
         this.accountName = accountName;
         this.password = password;
     }

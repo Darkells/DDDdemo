@@ -1,8 +1,11 @@
 package com.darken.ddddemo.infrastructure.db.mapper;
 
+import com.darken.ddddemo.application.query.vo.UserPageVo;
 import com.darken.ddddemo.infrastructure.db.dataObject.UserDo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 
 /**
@@ -11,6 +14,7 @@ import org.apache.ibatis.annotations.Param;
  */
 @Mapper
 public interface UserMapper {
+
     /**
      * 依据用户名查询用户数据
      * @param userName   用户名

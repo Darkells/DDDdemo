@@ -1,49 +1,33 @@
 package com.darken.ddddemo.domain.aggregate.User;
 
-import lombok.Data;
+import com.darken.ddddemo.infrastructure.db.dataObject.LocationDO;
+import com.darken.ddddemo.infrastructure.db.dataObject.UserDo;
 
 /**
  * @author 86134
  */
-@Data
 public class User {
-    /**
-     * 用户名
-     */
-    private String userName;
 
     /**
-     * 帐户
+     * 用户对象
      */
-    private String accountId;
+    private final UserDo user;
 
     /**
-     * 密码
+     * 地址
      */
-    private String password;
+    private final LocationDO location;
 
-    /**
-     * 用户类型
-     */
-    private String userType;
+    public User(UserDo userDo,LocationDO locationDO){
+        this.user = userDo;
+        this.location = locationDO;
+    }
 
-    /**
-     * 状态
-     */
-    private String status;
+    public UserDo getUser() {
+        return user;
+    }
 
-    /**
-     * 备注
-     */
-    private String remarks;
-
-    /**
-     * 手机号
-     */
-    private String mobile;
-
-    /**
-     * 邮箱
-     */
-    private String email;
+    public LocationDO getLocation() {
+        return location;
+    }
 }

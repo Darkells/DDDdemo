@@ -1,13 +1,13 @@
-package com.darken.ddddemo.infrastructure.db.dataObject;
+package com.darken.ddddemo.domain.valueObject;
 
 
 import cn.hutool.core.util.StrUtil;
 
 public class AccountName {
 
-    private String name;
+    private final String name;
 
-    public AccountName(final String accountName){
+    public AccountName(String accountName){
         if(StrUtil.isBlank(accountName)) {
             throw new IllegalArgumentException("账户名称不能为空");
         }

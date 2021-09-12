@@ -17,4 +17,5 @@ public class AccountLoginVo {
 
     @ApiModelProperty(value = "密码")
     private String password;
+
 }

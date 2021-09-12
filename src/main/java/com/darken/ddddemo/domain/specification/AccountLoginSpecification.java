@@ -1,6 +1,6 @@
 package com.darken.ddddemo.domain.specification;
 
-import com.darken.ddddemo.infrastructure.db.dataObject.AccountLoginDo;
+import com.darken.ddddemo.domain.valueObject.AccountLogin;
 
 /**
  * @author 86134
@@ -13,8 +13,8 @@ public class AccountLoginSpecification {
         this.password = password;
     }
 
-    public void isSatisfiedBy(AccountLoginDo accountLoginDo) {
-        if(accountLoginDo.checkPassword(password)) {
+    public void isSatisfiedBy(AccountLogin accountLogin) {
+        if(accountLogin.checkPassword(password)) {
             return;
         }
         throw new IllegalArgumentException("用户或密码不正确");

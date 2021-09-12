@@ -1,4 +1,4 @@
-package com.darken.ddddemo.infrastructure.db.dataObject;
+package com.darken.ddddemo.domain.valueObject;
 
 import cn.hutool.core.util.StrUtil;
 
@@ -7,9 +7,9 @@ import cn.hutool.core.util.StrUtil;
  */
 public class AccountPassword {
 
-    private String password;
+    private final String password;
 
-    public AccountPassword(final String password){
+    public AccountPassword(String password){
         if(StrUtil.isBlank(password)) {
             throw new IllegalArgumentException("密码不能为空");
         }
