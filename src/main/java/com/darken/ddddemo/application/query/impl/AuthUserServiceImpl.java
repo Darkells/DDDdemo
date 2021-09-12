@@ -4,6 +4,8 @@ import com.darken.ddddemo.application.query.AuthUserService;
 import com.darken.ddddemo.application.query.adapter.AccountLoginAdapter;
 import com.darken.ddddemo.application.query.dto.AccountLoginDto;
 import com.darken.ddddemo.application.query.vo.AccountLoginVo;
+import com.darken.ddddemo.domain.aggregate.User.User;
+import com.darken.ddddemo.domain.repository.UserRepository;
 import com.darken.ddddemo.domain.valueObject.AccountLogin;
 import com.darken.ddddemo.infrastructure.db.dataObject.UserDo;
 import com.darken.ddddemo.domain.specification.AccountLoginSpecification;
@@ -20,7 +22,7 @@ import javax.annotation.Resource;
 public class AuthUserServiceImpl implements AuthUserService {
 
     @Resource
-    private UserMapper userMapper;
+    private UserRepository userRepository;
 
     @Override
     public AccountLoginDto loginByAccount(AccountLoginVo accountLoginVo) {
@@ -28,13 +30,13 @@ public class AuthUserServiceImpl implements AuthUserService {
         AccountLogin accountLoginDp = AccountLoginAdapter.accountLoginVoToDp(accountLoginVo);
 
         //查询
-        UserDo userDo = userMapper.byUserName(accountLoginDp.getAccountName().getName());
-        if (null == userDo){
+        User user = userRepository.queryUser(accountLoginDp.getAccountName());
+        if (null == user){
             throw new RuntimeException("用户不存在");
         }
 
         //规则校验(密码校验)
-        AccountLoginSpecification specification = new AccountLoginSpecification(userDo.getPassword());
+        AccountLoginSpecification specification = new AccountLoginSpecification(user.getUser().getPassword());
         specification.isSatisfiedBy(accountLoginDp);
 
         //返回userDto

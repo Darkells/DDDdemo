@@ -1,6 +1,7 @@
 package com.darken.ddddemo.domain.repository;
 
 import com.darken.ddddemo.domain.aggregate.User.User;
+import com.darken.ddddemo.domain.valueObject.AccountName;
 import com.darken.ddddemo.domain.valueObject.UserName;
 
 /**
@@ -14,4 +15,6 @@ public interface UserRepository {
      * @return 用户Dto
      */
     User queryUser(UserName userName);
+
+    User queryUser(AccountName accountName);
 }
