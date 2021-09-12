@@ -1,8 +1,8 @@
 package com.darken.ddddemo.interfaces.controller.query;
 
-import com.darken.ddddemo.application.dto.AccountLoginDto;
-import com.darken.ddddemo.application.service.query.AuthUserService;
-import com.darken.ddddemo.application.vo.AccountLoginVo;
+import com.darken.ddddemo.application.query.dto.AccountLoginDto;
+import com.darken.ddddemo.application.query.AuthUserService;
+import com.darken.ddddemo.application.query.vo.AccountLoginVo;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 

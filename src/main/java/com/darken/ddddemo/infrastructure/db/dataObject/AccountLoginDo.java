@@ -1,9 +1,12 @@
-package com.darken.ddddemo.domain.DO;
+package com.darken.ddddemo.infrastructure.db.dataObject;
+
+import lombok.Data;
 
 /**
  * 账户登陆Do
  * @author 86134
  */
+@Data
 public class AccountLoginDo {
 
     private AccountName accountName;
@@ -22,13 +25,5 @@ public class AccountLoginDo {
      */
     public boolean checkPassword(String passwordStr) {
         return password != null && this.password.sameValueAs(passwordStr);
-    }
-
-    public AccountName getAccountName() {
-        return accountName;
-    }
-
-    public AccountPassword getPassword() {
-        return password;
     }
 }

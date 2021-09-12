@@ -1,7 +1,7 @@
-package com.darken.ddddemo.application.service.query;
+package com.darken.ddddemo.application.query;
 
-import com.darken.ddddemo.application.dto.AccountLoginDto;
-import com.darken.ddddemo.application.vo.AccountLoginVo;
+import com.darken.ddddemo.application.query.dto.AccountLoginDto;
+import com.darken.ddddemo.application.query.vo.AccountLoginVo;
 
 /**
  * 用户权限接口

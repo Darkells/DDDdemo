@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.darken.ddddemo.infrastructure.db.mapper.UserMapper">
+
+	<select id="byUserName" resultType="com.darken.ddddemo.infrastructure.db.dataObject.UserDo">
+		SELECT * FROM
+		ddd_user
+		WHERE TRUE
+		<if test="accountName != null and accountName != ''">
+			account_name = #{userName}
+		</if>
+	</select>
+</mapper>
