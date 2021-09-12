@@ -6,7 +6,7 @@ import lombok.Data;
  * @author 黑の鱼
  */
 @Data
-public class LocationDO {
+public class LocationDo {
 
     private String code;
 

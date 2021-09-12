@@ -1,7 +1,7 @@
 package com.darken.ddddemo.infrastructure.db.mapper;
 
 
-import com.darken.ddddemo.infrastructure.db.dataObject.LocationDO;
+import com.darken.ddddemo.infrastructure.db.dataObject.LocationDo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -17,6 +17,6 @@ public interface LocationMapper {
      * @param code 512300
      * @return 地址数据对象
      */
-    LocationDO byCode(@Param("code") String code);
+    LocationDo byCode(@Param("code") String code);
 
 }

@@ -6,7 +6,7 @@
 	namespace="com.darken.ddddemo.infrastructure.db.mapper.LocationMapper">
 
 	<select id="byCode"
-		resultType="com.darken.ddddemo.infrastructure.db.dataObject.LocationDO">
+		resultType="com.darken.ddddemo.infrastructure.db.dataObject.LocationDo">
 		SELECT *
 		FROM
 		     ddd_location

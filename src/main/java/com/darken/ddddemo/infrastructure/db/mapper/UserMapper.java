@@ -1,11 +1,8 @@
 package com.darken.ddddemo.infrastructure.db.mapper;
 
-import com.darken.ddddemo.application.query.vo.UserPageVo;
 import com.darken.ddddemo.infrastructure.db.dataObject.UserDo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-
-import java.util.List;
 
 
 /**

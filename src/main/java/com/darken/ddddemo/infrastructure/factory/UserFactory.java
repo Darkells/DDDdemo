@@ -3,18 +3,25 @@ package com.darken.ddddemo.infrastructure.factory;
 import com.darken.ddddemo.domain.aggregate.User.User;
 import com.darken.ddddemo.domain.valueObject.AccountName;
 import com.darken.ddddemo.domain.valueObject.UserName;
-import com.darken.ddddemo.infrastructure.db.dataObject.LocationDO;
+import com.darken.ddddemo.infrastructure.db.dataObject.LocationDo;
 import com.darken.ddddemo.infrastructure.db.dataObject.UserDo;
 import com.darken.ddddemo.infrastructure.db.mapper.LocationMapper;
 import com.darken.ddddemo.infrastructure.db.mapper.UserMapper;
+import org.springframework.beans.BeanUtils;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
 
 /**
  * @author 86134
  */
+@Component
 public class UserFactory {
 
+    @Resource
     private final UserMapper userMapper;
 
+    @Resource
     private final LocationMapper locationMapper;
 
     public UserFactory(UserMapper userMapper, LocationMapper locationMapper){
@@ -24,13 +31,20 @@ public class UserFactory {
 
     public User createUserByUserName(UserName name){
         UserDo userDo = userMapper.byUserName(name.getName());
-        LocationDO locationDO = locationMapper.byCode(userDo.getLocationCode());
-        return new User(userDo,locationDO);
+        LocationDo locationDO = locationMapper.byCode(userDo.getLocationCode());
+        return createUser(userDo,locationDO);
     }
 
     public User createUserByAccountName(AccountName accountName) {
         UserDo userDo = userMapper.byUserName(accountName.getName());
-        LocationDO locationDO = locationMapper.byCode(userDo.getLocationCode());
-        return new User(userDo,locationDO);
+        LocationDo locationDO = locationMapper.byCode(userDo.getLocationCode());
+        return createUser(userDo,locationDO);
+    }
+
+    private User createUser(UserDo userDo,LocationDo locationDO){
+        User user = new User();
+        BeanUtils.copyProperties(userDo,user);
+        user.setLocationCode(locationDO.getCode());
+        return user;
     }
 }

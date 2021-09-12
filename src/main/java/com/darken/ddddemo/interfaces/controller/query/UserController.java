@@ -1,18 +1,15 @@
 package com.darken.ddddemo.interfaces.controller.query;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.darken.ddddemo.application.query.UserQueryService;
 import com.darken.ddddemo.application.query.dto.AccountLoginDto;
 import com.darken.ddddemo.application.query.AuthUserService;
 import com.darken.ddddemo.application.query.dto.UserDto;
 import com.darken.ddddemo.application.query.vo.AccountLoginVo;
-import com.darken.ddddemo.application.query.vo.UserPageVo;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * @author 86134

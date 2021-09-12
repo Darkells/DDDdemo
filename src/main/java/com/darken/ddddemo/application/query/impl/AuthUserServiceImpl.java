@@ -1,15 +1,13 @@
 package com.darken.ddddemo.application.query.impl;
 
 import com.darken.ddddemo.application.query.AuthUserService;
-import com.darken.ddddemo.application.query.adapter.AccountLoginAdapter;
 import com.darken.ddddemo.application.query.dto.AccountLoginDto;
 import com.darken.ddddemo.application.query.vo.AccountLoginVo;
+import com.darken.ddddemo.application.query.vo.assembler.AccountLoginAssembler;
 import com.darken.ddddemo.domain.aggregate.User.User;
 import com.darken.ddddemo.domain.repository.UserRepository;
-import com.darken.ddddemo.domain.valueObject.AccountLogin;
-import com.darken.ddddemo.infrastructure.db.dataObject.UserDo;
 import com.darken.ddddemo.domain.specification.AccountLoginSpecification;
-import com.darken.ddddemo.infrastructure.db.mapper.UserMapper;
+import com.darken.ddddemo.domain.valueObject.AccountLogin;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -27,7 +25,7 @@ public class AuthUserServiceImpl implements AuthUserService {
     @Override
     public AccountLoginDto loginByAccount(AccountLoginVo accountLoginVo) {
         //值校验
-        AccountLogin accountLoginDp = AccountLoginAdapter.accountLoginVoToDp(accountLoginVo);
+        AccountLogin accountLoginDp = AccountLoginAssembler.toDp(accountLoginVo);
 
         //查询
         User user = userRepository.queryUser(accountLoginDp.getAccountName());
@@ -36,7 +34,7 @@ public class AuthUserServiceImpl implements AuthUserService {
         }
 
         //规则校验(密码校验)
-        AccountLoginSpecification specification = new AccountLoginSpecification(user.getUser().getPassword());
+        AccountLoginSpecification specification = new AccountLoginSpecification(user.getPassword());
         specification.isSatisfiedBy(accountLoginDp);
 
         //返回userDto

@@ -10,11 +10,16 @@ import com.darken.ddddemo.domain.valueObject.UserName;
 public interface UserRepository {
 
     /**
-     * 查询单个用户
+     * 通过用户名查询单个用户
      * @param userName 用户名
      * @return 用户Dto
      */
     User queryUser(UserName userName);
 
+    /**
+     * 通过账户名查询单个用户
+     * @param accountName 用户名
+     * @return 用户Dto
+     */
     User queryUser(AccountName accountName);
 }

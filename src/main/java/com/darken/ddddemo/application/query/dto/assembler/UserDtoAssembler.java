@@ -1,4 +1,4 @@
-package com.darken.ddddemo.application.query.assembler;
+package com.darken.ddddemo.application.query.dto.assembler;
 
 import cn.hutool.core.bean.BeanUtil;
 import com.darken.ddddemo.application.query.dto.UserDto;

@@ -1,7 +1,7 @@
 package com.darken.ddddemo.application.query.impl;
 
 import com.darken.ddddemo.application.query.UserQueryService;
-import com.darken.ddddemo.application.query.assembler.UserDtoAssembler;
+import com.darken.ddddemo.application.query.dto.assembler.UserDtoAssembler;
 import com.darken.ddddemo.application.query.dto.UserDto;
 import com.darken.ddddemo.domain.aggregate.User.User;
 import com.darken.ddddemo.domain.valueObject.UserName;
@@ -28,6 +28,7 @@ public class UserQueryServiceImpl implements UserQueryService {
         //仓储获取聚合
         User user = userRepository.queryUser(name);
         //规则校验
+
         //转换
         return UserDtoAssembler.apply(user);
     }
