@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 
 /**
+ * 用户工厂 用来创建聚合对象
  * @author 86134
  */
 @Component
