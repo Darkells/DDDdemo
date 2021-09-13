@@ -26,8 +26,8 @@ import org.springframework.stereotype.Component;
 
 
 /**
- * 异步监听日志事件
  *
+ * 异步监听日志事件 看到一个文章说最好使用XA模型进行两阶段提交,(即在发布前先持久化再发布，以及监听到消息后先持久化再进行事件处理)
  * @author Chill
  */
 @Slf4j
