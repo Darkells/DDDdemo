@@ -4,8 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.context.ApplicationEvent;
 
-import java.util.Date;
-
 /**
  * 事件发布实体
  * @author 86134
@@ -19,10 +17,6 @@ public class DomainEventData extends ApplicationEvent {
      */
     private Long id;
 
-    /**
-     * 事件发生时间
-     */
-    private Date time;
 
     /**
      * 事件类型
@@ -33,14 +27,12 @@ public class DomainEventData extends ApplicationEvent {
         super(source);
         this.type = type;
         this.id = System.currentTimeMillis();
-        this.time = new Date(id);
     }
 
     @Override
     public String toString() {
         return "DomainEventData{" +
                 "id=" + id +
-                ", time=" + time +
                 ", type=" + type +
                 ", source=" + source +
                 '}';
