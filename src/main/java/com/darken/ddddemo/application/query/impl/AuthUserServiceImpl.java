@@ -7,7 +7,7 @@ import com.darken.ddddemo.application.query.vo.assembler.AccountLoginAssembler;
 import com.darken.ddddemo.domain.aggregate.User.User;
 import com.darken.ddddemo.domain.repository.UserRepository;
 import com.darken.ddddemo.domain.specification.AccountLoginSpecification;
-import com.darken.ddddemo.domain.valueObject.AccountLogin;
+import com.darken.ddddemo.domain.aggregate.User.valueObject.AccountLogin;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

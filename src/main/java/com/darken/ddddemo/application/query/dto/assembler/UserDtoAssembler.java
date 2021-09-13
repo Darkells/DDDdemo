@@ -11,8 +11,8 @@ import com.darken.ddddemo.domain.aggregate.User.User;
 public class UserDtoAssembler{
 
     public static UserDto apply(User user) {
-        UserDto userDto = BeanUtil.copyProperties(user.getUser(), UserDto.class);
-        userDto.setLocationName(user.getLocation().getName());
+        UserDto userDto = BeanUtil.copyProperties(user, UserDto.class);
+        userDto.setLocationName(user.getLocationCode());
         return userDto;
     }
 }

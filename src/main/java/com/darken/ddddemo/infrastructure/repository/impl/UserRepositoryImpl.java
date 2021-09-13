@@ -2,8 +2,8 @@ package com.darken.ddddemo.infrastructure.repository.impl;
 
 import com.darken.ddddemo.domain.aggregate.User.User;
 import com.darken.ddddemo.domain.repository.UserRepository;
-import com.darken.ddddemo.domain.valueObject.AccountName;
-import com.darken.ddddemo.domain.valueObject.UserName;
+import com.darken.ddddemo.domain.aggregate.User.valueObject.AccountName;
+import com.darken.ddddemo.domain.aggregate.User.valueObject.UserName;
 import com.darken.ddddemo.infrastructure.db.mapper.LocationMapper;
 import com.darken.ddddemo.infrastructure.db.mapper.UserMapper;
 import com.darken.ddddemo.infrastructure.factory.UserFactory;

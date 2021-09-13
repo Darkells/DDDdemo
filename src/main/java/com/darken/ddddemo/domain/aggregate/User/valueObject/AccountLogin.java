@@ -1,4 +1,4 @@
-package com.darken.ddddemo.domain.valueObject;
+package com.darken.ddddemo.domain.aggregate.User.valueObject;
 
 import lombok.Data;
 

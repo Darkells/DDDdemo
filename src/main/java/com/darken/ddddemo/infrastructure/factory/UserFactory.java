@@ -1,8 +1,8 @@
 package com.darken.ddddemo.infrastructure.factory;
 
 import com.darken.ddddemo.domain.aggregate.User.User;
-import com.darken.ddddemo.domain.valueObject.AccountName;
-import com.darken.ddddemo.domain.valueObject.UserName;
+import com.darken.ddddemo.domain.aggregate.User.valueObject.AccountName;
+import com.darken.ddddemo.domain.aggregate.User.valueObject.UserName;
 import com.darken.ddddemo.infrastructure.db.dataObject.LocationDo;
 import com.darken.ddddemo.infrastructure.db.dataObject.UserDo;
 import com.darken.ddddemo.infrastructure.db.mapper.LocationMapper;

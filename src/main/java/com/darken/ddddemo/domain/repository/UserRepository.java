@@ -1,8 +1,8 @@
 package com.darken.ddddemo.domain.repository;
 
 import com.darken.ddddemo.domain.aggregate.User.User;
-import com.darken.ddddemo.domain.valueObject.AccountName;
-import com.darken.ddddemo.domain.valueObject.UserName;
+import com.darken.ddddemo.domain.aggregate.User.valueObject.AccountName;
+import com.darken.ddddemo.domain.aggregate.User.valueObject.UserName;
 
 /**
  * @author 86134

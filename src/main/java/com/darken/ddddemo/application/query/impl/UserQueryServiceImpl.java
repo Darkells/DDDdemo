@@ -4,7 +4,7 @@ import com.darken.ddddemo.application.query.UserQueryService;
 import com.darken.ddddemo.application.query.dto.assembler.UserDtoAssembler;
 import com.darken.ddddemo.application.query.dto.UserDto;
 import com.darken.ddddemo.domain.aggregate.User.User;
-import com.darken.ddddemo.domain.valueObject.UserName;
+import com.darken.ddddemo.domain.aggregate.User.valueObject.UserName;
 import com.darken.ddddemo.domain.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
