@@ -5,7 +5,14 @@
 <mapper
 	namespace="com.darken.ddddemo.infrastructure.db.mapper.UserMapper">
 
-	<select id="byUserName" resultType="com.darken.ddddemo.infrastructure.db.dataObject.UserDo">
+    <select id="userPage" resultType="com.darken.ddddemo.infrastructure.db.dataObject.UserDo">
+		SELECT * FROM
+		ddd_user
+		WHERE TRUE
+		limit #{pageIndex},pageSize
+	</select>
+
+    <select id="byUserName" resultType="com.darken.ddddemo.infrastructure.db.dataObject.UserDo">
 		SELECT * FROM
 		ddd_user
 		WHERE TRUE

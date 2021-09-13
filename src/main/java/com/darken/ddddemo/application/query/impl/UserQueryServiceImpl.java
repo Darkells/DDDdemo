@@ -4,11 +4,14 @@ import com.darken.ddddemo.application.query.UserQueryService;
 import com.darken.ddddemo.application.query.dto.assembler.UserDtoAssembler;
 import com.darken.ddddemo.application.query.dto.UserDto;
 import com.darken.ddddemo.domain.aggregate.User.User;
+import com.darken.ddddemo.domain.aggregate.User.valueObject.PageInfo;
 import com.darken.ddddemo.domain.aggregate.User.valueObject.UserName;
 import com.darken.ddddemo.domain.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author: Darken
@@ -31,5 +34,16 @@ public class UserQueryServiceImpl implements UserQueryService {
 
         //转换
         return UserDtoAssembler.apply(user);
+    }
+
+    @Override
+    public List<UserDto> queryUserPage(Integer page,Integer pageSize) {
+        //值校验
+        PageInfo pageInfo = new PageInfo(page,pageSize);
+        //仓储获取聚合
+        List<User> userList = userRepository.queryUserPage(pageInfo);
+
+        //转换
+        return userList.stream().map(UserDtoAssembler::apply).collect(Collectors.toList());
     }
 }

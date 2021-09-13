@@ -1,15 +1,19 @@
 package com.darken.ddddemo.infrastructure.repository.impl;
 
 import com.darken.ddddemo.domain.aggregate.User.User;
+import com.darken.ddddemo.domain.aggregate.User.valueObject.PageInfo;
 import com.darken.ddddemo.domain.repository.UserRepository;
 import com.darken.ddddemo.domain.aggregate.User.valueObject.AccountName;
 import com.darken.ddddemo.domain.aggregate.User.valueObject.UserName;
+import com.darken.ddddemo.infrastructure.db.dataObject.UserDo;
 import com.darken.ddddemo.infrastructure.db.mapper.LocationMapper;
 import com.darken.ddddemo.infrastructure.db.mapper.UserMapper;
 import com.darken.ddddemo.infrastructure.factory.UserFactory;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 用户仓储
@@ -48,5 +52,15 @@ public class UserRepositoryImpl implements UserRepository {
 
         //返回对象
         return user;
+    }
+
+    @Override
+    public List<User> queryUserPage(PageInfo pageInfo) {
+        //查询
+        List<UserDo> userDoList = userMapper.userPage(pageInfo.getCurIndex(), pageInfo.getPageSize());
+        //转化
+        UserFactory userFactory = new UserFactory(userMapper, locationMapper);
+        List<User> userList = userDoList.stream().map(userFactory::createUserByUserDo).collect(Collectors.toList());
+        return userList;
     }
 }

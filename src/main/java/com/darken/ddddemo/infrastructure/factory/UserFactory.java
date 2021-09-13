@@ -32,12 +32,15 @@ public class UserFactory {
 
     public User createUserByUserName(UserName name){
         UserDo userDo = userMapper.byUserName(name.getName());
-        LocationDo locationDO = locationMapper.byCode(userDo.getLocationCode());
-        return createUser(userDo,locationDO);
+        return createUserByUserDo(userDo);
     }
 
     public User createUserByAccountName(AccountName accountName) {
         UserDo userDo = userMapper.byUserName(accountName.getName());
+        return createUserByUserDo(userDo);
+    }
+
+    public User createUserByUserDo(UserDo userDo){
         LocationDo locationDO = locationMapper.byCode(userDo.getLocationCode());
         return createUser(userDo,locationDO);
     }
