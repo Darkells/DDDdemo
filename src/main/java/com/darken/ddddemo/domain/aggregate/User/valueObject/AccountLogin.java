@@ -3,7 +3,7 @@ package com.darken.ddddemo.domain.aggregate.User.valueObject;
 import lombok.Data;
 
 /**
- * 账户登陆Do
+ * 账户登陆Dp
  * @author 86134
  */
 @Data

@@ -7,9 +7,9 @@ import cn.hutool.core.util.StrUtil;
  */
 public class AccountPassword {
 
-    private final String password;
+    private String password;
 
-    public AccountPassword(String password){
+    public AccountPassword(final String password){
         if(StrUtil.isBlank(password)) {
             throw new IllegalArgumentException("密码不能为空");
         }

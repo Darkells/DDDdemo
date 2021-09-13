@@ -7,9 +7,9 @@ import cn.hutool.core.util.StrUtil;
  */
 public class UserName {
 
-    private final String userName;
+    private String userName;
 
-    public UserName(String userName){
+    public UserName(final String userName){
         if(StrUtil.isBlank(userName)) {
             throw new IllegalArgumentException("用户名不能为空");
         }

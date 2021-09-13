@@ -5,9 +5,9 @@ import cn.hutool.core.util.StrUtil;
 
 public class AccountName {
 
-    private final String name;
+    private String name;
 
-    public AccountName(String accountName){
+    public AccountName(final String accountName){
         if(StrUtil.isBlank(accountName)) {
             throw new IllegalArgumentException("账户名称不能为空");
         }
